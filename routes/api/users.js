@@ -23,6 +23,15 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+
+    // See if user exist
+
+    // Get users gravatar
+
+    // Encrypt the password
+
+    // return the jsonwebtoken
+
     res.send("User route");
   }
 );
