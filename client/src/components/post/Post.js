@@ -5,11 +5,13 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import PostItem from '../posts/PostItem';
 import CommentForm from '../post/CommentForm';
+import CommentItem from '../post/CommentItem';
 import { getPost } from '../../actions/post';
 
 const Post = ({ getPost, post: { post, loading }, match }) => {
   useEffect(() => {
     getPost(match.params.id);
+    // eslint-disable-next-line
   }, [getPost]);
 
   return loading || post === null ? (
@@ -21,9 +23,9 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
       </Link>
       <PostItem post={post} showActions={false} />
       <CommentForm postId={post._id} />
-      <div className="comments">
+      <div className='comments'>
         {post.comments.map(comment => (
-          <CommentItem key={comment._id} comment={comment} postId={post._id}
+          <CommentItem key={comment._id} comment={comment} postId={post._id} />
         ))}
       </div>
     </Fragment>
